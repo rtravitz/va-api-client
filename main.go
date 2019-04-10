@@ -46,6 +46,12 @@ func main() {
 	r.PathPrefix("/").Handler(fs)
 
 	port := os.Getenv("PORT")
+	if os.Getenv("ENV") == "LOCAL" {
+		port = "localhost:" + port
+	} else {
+		port = ":" + port
+	}
+
 	log.Printf("Listening on port %s\n", port)
-	log.Fatal(http.ListenAndServe("localhost:"+port, r))
+	log.Fatal(http.ListenAndServe(port, r))
 }
