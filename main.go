@@ -10,6 +10,8 @@ import (
 	"github.com/gorilla/mux"
 )
 
+const callback = "https://go-va-api-client.herokuapp.com/auth/callback"
+
 func redirectHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("Incoming request:\n%+v\n", r)
 	w.Write([]byte("redirect route"))
