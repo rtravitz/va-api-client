@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 )
@@ -17,7 +18,7 @@ func main() {
 	r.HandleFunc("/redirect", redirectHandler)
 	r.PathPrefix("/").Handler(fs)
 
-	port := ":5000"
+	port := os.Getenv("PORT")
 	log.Printf("Listening on port %s\n", port)
-	log.Fatal(http.ListenAndServe(port, r))
+	log.Fatal(http.ListenAndServe(":"+port, r))
 }
