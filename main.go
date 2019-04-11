@@ -13,8 +13,8 @@ import (
 )
 
 var (
-	clientID     = os.Getenv("VA_OAUTH_CLIENT_ID")
-	clientSecret = os.Getenv("VA_OAUTH_CLIENT_SECRET")
+	clientID     = os.Getenv("VA_CLIENT")
+	clientSecret = os.Getenv("VA_SECRET")
 	redirectURL  = "https://go-va-api-client.herokuapp.com/auth/callback"
 )
 
